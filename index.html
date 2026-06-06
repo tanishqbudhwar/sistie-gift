@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Amazing Friend</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+}
+
+.card{
+    width:90%;
+    max-width:600px;
+    padding:40px;
+    text-align:center;
+    color:white;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 0 40px rgba(255,255,255,0.1);
+    animation:float 4s ease-in-out infinite;
+    z-index:2;
+}
+
+h1{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.highlight{
+    color:#ffd166;
+    font-weight:bold;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.heart{
+    position:absolute;
+    color:#ff6b81;
+    animation:rise linear infinite;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(100vh) scale(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px) scale(1.5);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>💖 A Small Gift For You 💖</h1>
+
+    <p>
+        Hey <span class="highlight">Bestie/Sis</span>,
+        <br><br>
+        You asked for a gift, so here's something special.
+        <br><br>
+        Thank you for being such a kind, supportive, and amazing person.
+        Life becomes a little brighter because of friends like you.
+        <br><br>
+        No matter how much we tease each other,
+        I'll always appreciate our friendship.
+        <br><br>
+        🌸 Stay happy, keep smiling, and never change. 🌸
+    </p>
+
+    <button onclick="showMessage()">Click Me ✨</button>
+</div>
+
+<script>
+function showMessage(){
+    alert("You are an awesome friend and an even better sister-like person. Wishing you lots of happiness! 💖");
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*25 + 15 + "px";
+    heart.style.animationDuration = Math.random()*4 + 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,250);
+</script>
+
+</body>
+</html>
